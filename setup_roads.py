@@ -108,7 +108,7 @@ class Network():
         
     def update_roads(self):
         self.roads["colour"][self.roads["delivered"]=="Yes"] = "SpringGreen"
-        self.roads["colour"][self.roads["delivered"]=="Arranged"] = "Orange"
+        self.roads["colour"][self.roads["delivered"]=="Arranged"] = "Gold"
         self.roads["colour"][self.roads["delivered"]=="No"] = "Red"
         self.resave_files()
         

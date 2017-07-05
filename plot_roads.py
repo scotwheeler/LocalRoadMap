@@ -76,7 +76,7 @@ def create_plot(name, exterior, roads):
                         line_color="black")
     
     roads_plot = network_map.multi_line("x", "y", source=roads_cds,
-                                        color="colour")#, line_width="linewidth")
+                                        color="colour", line_width=2)
     # for an unknown reason, defining line_width stops hover tool working
     
     hover = network_map.select_one(HoverTool)
