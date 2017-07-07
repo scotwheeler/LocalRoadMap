@@ -1,8 +1,29 @@
-body{
-    background-color: darkgoldenrod;
+header{
     margin: 20px;
 }
 
-body section{
+
+body{
+    background-color: lightgoldenrodyellow;
+    margin: 20px;
+}
+
+nav{
+    display:flex;
+}
+
+a{
+    width: 200px;
+    color: black;
+    padding: 10px;
+    margin: 10px;
     font-size: 1.2em;
+    background-color: #faa01a;
+}
+
+@media (max-width: 500px){
+    nav{
+        flex-direction: column;
+    }
+    
 }

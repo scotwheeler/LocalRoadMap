@@ -7,7 +7,7 @@ defined by exterior polygon.
 @author: Scot Wheeler
 """
 
-__version__ = 2.0
+__version__ = 2.1
 
 import os
 import numpy as np
@@ -103,7 +103,7 @@ class Network():
         roads.loc[:, "houses"] = np.nan
         roads.loc[:, "colour"] = "Red"
         roads.loc[:, "linewidth"] = 1
-        roads.loc[:, "delivered"] = "No"
+        roads.loc[:, "status"] = "No"
         
         # define line widths
         roads.loc[roads["fclass"]=="primary", "linewidth"] = 3
@@ -137,14 +137,14 @@ class Network():
         
     def update_roads(self):
         """ Updates the colours based on status"""
-        self.roads.loc[self.roads["delivered"]=="Yes", "colour"] = "SpringGreen"
-        self.roads.loc[self.roads["delivered"]=="Arranged", "colour"] = "Gold"
-        self.roads.loc[self.roads["delivered"]=="No", "colour"] = "Red"
+        self.roads.loc[self.roads["status"]=="Yes", "colour"] = "SpringGreen"
+        self.roads.loc[self.roads["status"]=="Arranged", "colour"] = "Gold"
+        self.roads.loc[self.roads["status"]=="No", "colour"] = "Red"
         self.save_files()
         
-    def update_delivery_status(self, road, status="Yes"):
+    def update_status(self, road, status="Yes"):
         """
-        Updates delivery status. Called by input_delivery_status, 
+        Updates status. Called by input_status, 
         and update_status_from_csv.
         
         Parameters
@@ -160,52 +160,52 @@ class Network():
             print(road+" not found")
             return
         else:
-            self.roads.loc[self.roads["name"] == road,"delivered"] = status
+            self.roads.loc[self.roads["name"] == road,"status"] = status
             self.update_roads()
                   
-    def input_delivery_status(self):
+    def input_status(self):
         """
-        Interface for updating delivery status. Can also be done by editing 
+        Interface for updating status. Can also be done by editing 
         csv then calling update_status_from_csv
         """
-        delivered = input("Newly delivered road names, comma separated:")
-        delivered_list = [x.lstrip() for x in delivered.split(',')]
-        for road in delivered_list:
-            self.update_delivery_status(road, status="Yes")
+        status = input("New 'Yes' status road names, comma separated: ")
+        status_list = [x.lstrip() for x in status.split(',')]
+        for road in status_list:
+            self.update_status(road, status="Yes")
         
-        arranged = input("Newly arranged road names, comma separated:")
+        arranged = input("New 'Arranged' status road names, comma separated: ")
         arranged_list = [x.lstrip() for x in arranged.split(',')]
         for road in arranged_list:
-            self.update_delivery_status(road, status="Arranged")
+            self.update_status(road, status="Arranged")
         self.save_status_csv() # could be dangerous if something goes wrong above
                 
     def save_status_csv(self):
         """
-        Saves a simple csv of road name and delivery status.
+        Saves a simple csv of road name and status.
         """
         # potential problem if a previously unknown road name is updated
         # update delivered status from csv in case road names have been changed        
         road_name = []
         statuses = []
         for index, road in self.roads.iterrows():
-            status = road["delivered"]
+            status = road["status"]
             if road["name"] != None:
                 if road["name"] not in road_name:
                     road_name.append(road["name"])
-                    statuses.append(road["delivered"])
+                    statuses.append(road["status"])
                 
-        statuses_df = pd.DataFrame({"road":road_name, "delivered":statuses})
+        statuses_df = pd.DataFrame({"road":road_name, "status":statuses})
         statuses_csv_file = os.path.normpath(self.name 
                                              + "\\" + self.name 
-                                             + "_delivery_status.csv")
+                                             + "_status.csv")
         statuses_df.to_csv(statuses_csv_file, index=False)
         return statuses_df
     
     def update_status_from_csv(self):
         """ 
-        This will update roads delivery status from the values in the csv file
-        Delivery updates can then be made by editing the csv file, rather than
-        running 'input_delivery_status'.
+        This will update roads status from the values in the csv file
+        Status updates can then be made by editing the csv file, rather than
+        running 'input_status'.
         Also useful if road names are edited (ie if blank road name is corrected)
         """
         # this needs speeding up, only update if status has changed?
@@ -214,10 +214,10 @@ class Network():
         
         statuses_csv_file = os.path.normpath(self.name + "\\" 
                                              + self.name 
-                                             + "_delivery_status.csv")
+                                             + "_status.csv")
         statuses_df = pd.read_csv(statuses_csv_file)
         for index, road in statuses_df.iterrows():
-            self.update_delivery_status(road["road"], status=road["delivered"])
+            self.update_status(road["road"], status=road["status"])
             
     def update_road_name(self, road_index = None, new_name = None):
         """
@@ -255,10 +255,10 @@ class Network():
 
 
 if __name__ == "__main__":
-    ladygrove = Network()
+#    ladygrove = Network(name="Ladygrove_canvassing")
 #    ladygrove.reset()
 #    ladygrove.update_status_from_csv()
-#    ladygrove.input_delivery_status()
+#    ladygrove.input_status()
 #    ladygrove.update_road_name()
     plot_roads.create_plot(ladygrove.name, ladygrove.exterior_gdf, ladygrove.roads)
     pass

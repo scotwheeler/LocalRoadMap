@@ -5,13 +5,13 @@ Created on Tue Jul  4 20:56:54 2017
 @author: Scot Wheeler
 """
 
-__version__ = 1.1
+__version__ = 2.1
 
 from shapely.geometry import Point, LineString, Polygon
 import pandas as pd
 import geopandas as gpd
 import bokeh.plotting as bk
-from bokeh.models import ColumnDataSource, HoverTool
+from bokeh.models import ColumnDataSource, HoverTool, Label
 import os
 #from bokeh.io import export_png
 
@@ -73,7 +73,7 @@ def create_plot(name, exterior, roads):
     tools = "pan, wheel_zoom, reset, hover, save"
     network_map = bk.Figure(tools=tools, active_scroll='wheel_zoom',
                             x_axis_location=None, y_axis_location=None, 
-                            webgl=True)
+                            webgl=True, title = name)
     
     network_map.patches("x", "y", source=exterior_cds, fill_color=None,
                         line_color="black")
@@ -85,8 +85,9 @@ def create_plot(name, exterior, roads):
     hover = network_map.select_one(HoverTool)
     hover.renderers=[roads_plot]
     hover.point_policy = "follow_mouse"
-    hover.tooltips = [("Name", "@name"),("Delivered", "@delivered"),
+    hover.tooltips = [("Name", "@name"),("Status", "@status"),
                       ("index", "@road_index")]
+    network_map.grid.grid_line_color = None
     
     directory = os.path.normpath(name)
     if os.path.isdir(directory):
