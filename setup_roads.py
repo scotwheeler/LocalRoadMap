@@ -262,11 +262,17 @@ if __name__ == "__main__":
 #    ladygrove.update_status_from_csv()
 #    ladygrove_canvassing.update_status_from_csv()
 
-    ladygrove_leafleting.input_status()
-#    ladygrove_canvassing.input_status()
+#    ladygrove_leafleting.input_status()
+    ladygrove_canvassing.input_status()
 
 #    ladygrove.update_road_name()
-    plot_roads.create_plot(ladygrove_leafleting.name, ladygrove_leafleting.exterior_gdf, ladygrove_leafleting.roads)
+#    plot_roads.create_plot(ladygrove_leafleting.name,
+#                           ladygrove_leafleting.exterior_gdf,
+#                           ladygrove_leafleting.roads)
+    plot_roads.create_plot(ladygrove_canvassing.name,
+                           ladygrove_canvassing.exterior_gdf,
+                           ladygrove_canvassing.roads)
+
     pass
 
 
