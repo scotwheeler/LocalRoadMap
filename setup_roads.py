@@ -171,12 +171,12 @@ class Network():
         status = input("New 'Yes' status road names, comma separated: ")
         status_list = [x.lstrip() for x in status.split(',')]
         for road in status_list:
-            self.update_status(road, status="Yes")
+            self.update_status(road.title(), status="Yes")
         
         arranged = input("New 'Arranged' status road names, comma separated: ")
         arranged_list = [x.lstrip() for x in arranged.split(',')]
         for road in arranged_list:
-            self.update_status(road, status="Arranged")
+            self.update_status(road.title(), status="Arranged")
         self.save_status_csv() # could be dangerous if something goes wrong above
                 
     def save_status_csv(self):
@@ -255,12 +255,18 @@ class Network():
 
 
 if __name__ == "__main__":
-#    ladygrove = Network(name="Ladygrove_canvassing")
+    ladygrove_canvassing = Network(name="Ladygrove_canvassing")
+    ladygrove_leafleting = Network(name="Ladygrove_leafleting")
 #    ladygrove.reset()
+
 #    ladygrove.update_status_from_csv()
-#    ladygrove.input_status()
+#    ladygrove_canvassing.update_status_from_csv()
+
+    ladygrove_leafleting.input_status()
+#    ladygrove_canvassing.input_status()
+
 #    ladygrove.update_road_name()
-    plot_roads.create_plot(ladygrove.name, ladygrove.exterior_gdf, ladygrove.roads)
+    plot_roads.create_plot(ladygrove_leafleting.name, ladygrove_leafleting.exterior_gdf, ladygrove_leafleting.roads)
     pass
 
 
