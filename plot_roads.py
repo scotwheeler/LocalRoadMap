@@ -2,14 +2,17 @@
 """
 Created on Tue Jul  4 20:56:54 2017
 
-@author: scotw
+@author: Scot Wheeler
 """
+
+__version__ = 1.1
 
 from shapely.geometry import Point, LineString, Polygon
 import pandas as pd
 import geopandas as gpd
 import bokeh.plotting as bk
 from bokeh.models import ColumnDataSource, HoverTool
+import os
 #from bokeh.io import export_png
 
     
@@ -82,7 +85,15 @@ def create_plot(name, exterior, roads):
     hover = network_map.select_one(HoverTool)
     hover.renderers=[roads_plot]
     hover.point_policy = "follow_mouse"
-    hover.tooltips = [("Name", "@name"),("Delivered", "@delivered")]
-    bk.save(network_map, filename = (name+"_map.html"), title=(name+"_map"))
+    hover.tooltips = [("Name", "@name"),("Delivered", "@delivered"),
+                      ("index", "@road_index")]
+    
+    directory = os.path.normpath(name)
+    if os.path.isdir(directory):
+        output_html = os.path.normpath(name + "\\" + name+"_map.html")
+    else:
+        output_html = os.path.normpath(name+"_map.html")
+        
+    bk.save(network_map, filename = output_html, title=(name+"_map"))
     bk.show(network_map)
     return network_map
