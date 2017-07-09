@@ -1,16 +1,16 @@
 road,status
 Abingdon Road,Yes
 Northern Perimeter Road,No
-Cow Lane,No
+Cow Lane,Yes
 Avon Way,No
 Tyne Avenue,No
-Tamar Way,No
+Tamar Way,Arranged
 Old Bourne,Yes
 Rawthey Avenue,Yes
 Dagdale Drive,Yes
 Tavy Close,Yes
 Wandle Beck,Yes
-Tweed Drive,Arranged
+Tweed Drive,Yes
 Yealm Close,Yes
 Brent Avenue,Yes
 Monks Lode,Yes
@@ -20,7 +20,7 @@ Mersey Way,Yes
 Foudry Close,Yes
 Plym Drive,Yes
 Orwell Drive,Arranged
-Trent Road,Arranged
+Trent Road,Yes
 Ashburn Place,Arranged
 Nunney Brook,Arranged
 Jordan Close,Yes
@@ -39,10 +39,10 @@ Halse Water,Yes
 Roding Way,Yes
 Torridge Drive,Yes
 Wensum Drive,Yes
-Arndale Beck,Arranged
+Arndale Beck,Yes
 Loddon Drive,Yes
 Yare Close,Yes
-Lune Close,No
+Lune Close,Yes
 Ockley Brook,Yes
 Venners Water,Yes
 Bowmont Water,Arranged
@@ -57,19 +57,19 @@ Upperway Furlong,Yes
 Bush Furlong,Yes
 Short Furlong,Yes
 Calder Way,Yes
-Washford Glen,Arranged
+Washford Glen,Yes
 North Bush Furlong,Yes
 Blackwater Way,Yes
-Derwent Avenue,No
-Hamble Road,No
-Waveney Close,No
+Derwent Avenue,Yes
+Hamble Road,Yes
+Waveney Close,Yes
 Evenlode Drive,Yes
 Tyburn Glen,Yes
 Welland Avenue,Yes
 Synderford Close,Yes
 Thurne View,No
-Medina Close,No
-Arun Mews,No
+Medina Close,Yes
+Arun Mews,Yes
 Wansbeck Wood,Yes
 Alphin Brook,Yes
 Chinnock Brook,Arranged
@@ -87,7 +87,7 @@ Exe Close,Yes
 Tarret Burn,Arranged
 Longford Way,Yes
 Lea Grove,Yes
-Churnet Close,Arranged
+Churnet Close,Yes
 Verlam Grove,Yes
 Shinmoor Close,Yes
 The Frith,Yes
@@ -96,9 +96,9 @@ Itchen Court,Yes
 Windrush Mews,Yes
 Cray Court,Yes
 Cherwell Close,Yes
-Stour Close,No
+Stour Close,Yes
 Grange Beck,No
-Nene Grove,Arranged
+Nene Grove,Yes
 Humber Close,Arranged
 Swarbourne Close,Yes
 Cole Court,Yes
@@ -107,7 +107,7 @@ Blakehope Burn,Arranged
 Dudwell,Yes
 Kew Win,Yes
 Penpont Water,Yes
-Lostock Place,No
-Eden Court,No
+Lostock Place,Yes
+Eden Court,Yes
 Rugge Furlong,Yes
 Bayswater Brook,Yes

@@ -21,8 +21,8 @@ Foudry Close,Arranged
 Plym Drive,Arranged
 Orwell Drive,Yes
 Trent Road,No
-Ashburn Place,No
-Nunney Brook,No
+Ashburn Place,Yes
+Nunney Brook,Yes
 Jordan Close,Arranged
 Ray Court,No
 Teescroft,No
@@ -46,8 +46,8 @@ Lune Close,No
 Ockley Brook,No
 Venners Water,Arranged
 Bowmont Water,Arranged
-Dart Drive,No
-Brunstock Beck,No
+Dart Drive,Yes
+Brunstock Beck,Yes
 Finham Brook,No
 Westwater Way,No
 Gelt Burn,No
@@ -71,20 +71,20 @@ Thurne View,No
 Medina Close,No
 Arun Mews,No
 Wansbeck Wood,No
-Alphin Brook,No
-Chinnock Brook,No
-Abbey Brook,No
-Medlock Grove,No
+Alphin Brook,Yes
+Chinnock Brook,Yes
+Abbey Brook,Yes
+Medlock Grove,Yes
 Rother Garth,Arranged
-Sutherland Beck,No
-Ouse Close,No
+Sutherland Beck,Yes
+Ouse Close,Yes
 Cam Close,No
 Ottery Way,Yes
 Darent Place,Yes
 Ancholme Close,Arranged
 Dulas Close,Arranged
 Exe Close,No
-Tarret Burn,No
+Tarret Burn,Yes
 Longford Way,Arranged
 Lea Grove,No
 Churnet Close,No
@@ -103,8 +103,8 @@ Humber Close,Arranged
 Swarbourne Close,No
 Cole Court,No
 Doe Lea,No
-Blakehope Burn,No
-Dudwell,No
+Blakehope Burn,Yes
+Dudwell,Yes
 Kew Win,No
 Penpont Water,No
 Lostock Place,No
