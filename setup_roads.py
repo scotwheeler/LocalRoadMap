@@ -255,24 +255,29 @@ class Network():
 
 
 if __name__ == "__main__":
-    ladygrove_canvassing = Network(name="Ladygrove_canvassing")
-    ladygrove_leafleting = Network(name="Ladygrove_leafleting")
-#    ladygrove.reset()
+#    ladygrove_canvassing = Network(name="Ladygrove_canvassing")
+#    ladygrove_leafleting = Network(name="Ladygrove_leafleting")
+    final_leaflets = Network(name="final_leaflets")
+##    ladygrove.reset()
+#
+##    ladygrove.update_status_from_csv()
+##    ladygrove_canvassing.update_status_from_csv()
 
-#    ladygrove.update_status_from_csv()
-#    ladygrove_canvassing.update_status_from_csv()
-
-#    ladygrove_leafleting.input_status()
-    ladygrove_canvassing.input_status()
-
-
+##    ladygrove_leafleting.input_status()
+#    ladygrove_canvassing.input_status()
+    final_leaflets.input_status()
+#
+#
 #    ladygrove.update_road_name()
 #    plot_roads.create_plot(ladygrove_leafleting.name,
 #                           ladygrove_leafleting.exterior_gdf,
 #                           ladygrove_leafleting.roads)
-    plot_roads.create_plot(ladygrove_canvassing.name,
-                           ladygrove_canvassing.exterior_gdf,
-                           ladygrove_canvassing.roads)
+#    plot_roads.create_plot(ladygrove_canvassing.name,
+#                           ladygrove_canvassing.exterior_gdf,
+#                           ladygrove_canvassing.roads)
+    plot_roads.create_plot(final_leaflets.name,
+                           final_leaflets.exterior_gdf,
+                           final_leaflets.roads)
 
     pass
 
