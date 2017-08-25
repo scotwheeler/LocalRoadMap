@@ -97,13 +97,23 @@ class Network():
         named_roads = roads_in_area["name"].notnull()
         others = roads_in_area["fclass"].isin(["primary", "secondary", "tertiary", "residential", "unknown", "unclassified"])
         to_keep = (named_roads | others)
-        roads = roads_in_area[to_keep]
+        roads = roads_in_area[to_keep].copy()
+        
+        # filter footpaths, cycleways etc
+        non_vehicle_bool = roads_in_area["fclass"].isin(["bridleway",
+                                        "cycleway", "footway", "path",
+                                        "steps"])
+    
+        non_vehicle = roads_in_area[non_vehicle_bool].copy()
         
         # create columns
         roads.loc[:, "houses"] = np.nan
         roads.loc[:, "colour"] = "Red"
         roads.loc[:, "linewidth"] = 1
         roads.loc[:, "status"] = "No"
+        
+        non_vehicle.loc[:, "colour"] = "Grey"
+        non_vehicle.loc[:, "linewidth"] = 0.75
         
         # define line widths
         roads.loc[roads["fclass"]=="primary", "linewidth"] = 3

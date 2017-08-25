@@ -73,7 +73,7 @@ def create_plot(name, exterior, roads):
     tools = "pan, wheel_zoom, reset, hover, save"
     network_map = bk.Figure(tools=tools, active_scroll='wheel_zoom',
                             x_axis_location=None, y_axis_location=None, 
-                            webgl=True, title = name)
+                            webgl=True, title = name, plot_width=500, plot_height=500)
     
     network_map.patches("x", "y", source=exterior_cds, fill_color=None,
                         line_color="black")
